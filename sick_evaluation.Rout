@@ -1,0 +1,69 @@
+
+R version 3.0.1 (2013-05-16) -- "Good Sport"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: i686-pc-linux-gnu (32-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ## Use this R script as follows:
+> 
+> ## R --no-save --slave --vanilla --args your-scores gold < sick_evaluation.R 
+> 
+> ## where your-scores is the file with your system output and gold is
+> ## the gold standard file (for example, the SICK_trial.txt and
+> ## SICK_train.txt files we already released).
+> 
+> ## Your file must contain the following 3 tab-delimited columns:
+> 
+> ## -pair_ID (the ids, that should match those in the relevant set
+> ## -trial, train or test data set),
+> 
+> ## - entailment_judgment (predictions of your system for the
+> ## entailment sub-task; possible values: ENTAILMENT, CONTRADICTION,
+> ## NEUTRAL) and
+> 
+> ## - relatedness_score (numerical predictions of your system for the
+> ## sentence relatedness sub-task).
+> 
+> ## Note that the first line of the file must be a "header" naming the
+> ## 3 columns exactly with the 3 strings above (pair_ID,
+> ## entailment_judgment and relatedness_score).
+> 
+> ## The order of the columns and rows does not matter: of course, the
+> ## ids must match those in the relevant data sets.
+> 
+> ## If you do not participate in the entailment or relatedness task,
+> ## please provide a column of NA (by that, we mean that you should
+> ## literally enter the string NA in each row).
+> ## Note that, for either subtask you want to evaluate, you must 
+> ## provide a value for each test pair: if your scores contain 1) NAs 
+> ## or 2) missing values, the script will 1) ignore the subtask 
+> ## or 2) return an error, respectively. 
+> 
+> ## The script returns system (percentage) accuracy for the entailment
+> ## task and Pearson and Spearman correlation scores and mean squared
+> ## error for the relatedness task.
+> 
+> 
+> ifile = commandArgs()[6];
+> gold = commandArgs()[7];
+> 
+> read.delim(ifile, sep="\t", header=T) -> score;
+Error in file(file, "rt") : cannot open the connection
+Calls: read.delim -> read.table -> file
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file '--no-readline': No such file or directory
+Execution halted
